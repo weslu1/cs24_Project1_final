@@ -24,7 +24,7 @@ Node(int val = 0){
   node_t = INTEGER;
 }
 
-string print_infix() const
+string Node::print_infix() const
 {
   if (node_t == VARIABLE){
 	  string infix = "x";
@@ -39,7 +39,7 @@ string print_infix() const
 	  return infix;
   }
 }
-string print_prefix() const
+string Node::print_prefix() const
 { 
   if (node_t == VARIABLE){
 	  string infix = "x";
@@ -55,7 +55,7 @@ string print_prefix() const
   }
   
 }
-string print_postfix() const
+string Node::print_postfix() const
 {
   if (node_t == VARIABLE){
 	  string infix = "x";
@@ -71,12 +71,12 @@ string print_postfix() const
   }
 	
 }
-string int_to_string() const{
+string Node::int_to_string() const{
   if(node_t == INTEGER)
   return to_string(data);
 
 }
-char print_operator() const
+char Node::print_operator() const
 {
   if(data == PLUS)
     return "+";
@@ -88,3 +88,11 @@ char print_operator() const
     return "/";
       
 }
+Node Node::getLeft(){
+	return operand1;
+}
+
+Node Node::getRight(){
+	return operand2;
+}
+
