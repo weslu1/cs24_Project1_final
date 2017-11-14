@@ -25,16 +25,50 @@ Node(int val = 0){
 
 string print_infix() const
 {
-  string infix ="( " + operand1.data + print_operator() + operand2.data + " )";  
-  return infix;
+  if (node_t == VARIABLE){
+	  string infix = "x";
+	  return infix;
+  }
+  else if (node_t == EXPRESSION){ 	
+	  string infix ="( " + operand1.data + print_operator() + operand2.data + " )";  
+	  return infix;
+  }
+  else if (node_t == INTEGER){
+	  string infix = int_to_string();
+	  return infix;
+  }
 }
 string print_prefix() const
-{
-
+{ 
+  if (node_t == VARIABLE){
+	  string infix = "x";
+	  return infix;
+  }
+  if (node_t == EXPRESSION){
+	  string prefix = print_operator() + operand1.data + operand2.data ;
+	  return prefix;
+  }
+  else if (node_t == INTEGER){
+  	  string infix = int_to_string();
+  	  return infix;
+  }
+  
 }
 string print_postfix() const
 {
-
+  if (node_t == VARIABLE){
+	  string infix = "x";
+	  return infix;
+  }
+  if (node_t == EXPRESSION){
+	  string prefix =  operand1.data + operand2.data + print_operator();
+	  return prefix;
+  }
+  else if (node_t == INTEGER){
+	  string infix = int_to_string();
+	  return infix;
+  }
+	
 }
 string int_to_string() const{
   if(node_t == INTEGER)
