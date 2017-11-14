@@ -1,0 +1,18 @@
+using namespace std;
+
+class node:
+{
+ public:
+
+  Node();
+  void set_operator(const string op);
+  string get_operator();  
+  
+ private:
+
+  string operator;
+  node* right; 
+  node* left;
+};
+
+#endif
