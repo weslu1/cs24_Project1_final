@@ -26,6 +26,9 @@ class Node {
         string print_postfix() const;
         string int_to_string() const;
         char print_operator() const;
+	Node getLeft();
+        Node getRight();
+        void setData(data_type d);
 
 
     private:
