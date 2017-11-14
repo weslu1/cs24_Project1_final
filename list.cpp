@@ -4,43 +4,51 @@
 
 using namespace std;
 
+node List::getHead()
+{
+  return head;
+}
 
 
-void expressionToList(string exp){
-  node* current;
+void List:: expressionToList(string exp){
+
+  node* current = new node;
+  head = current; //access list with this head                                                                                                                                                              
   char* cursor;
   for(int i = 0; i<exp.length(); i++){
     cursor = exp[i];
     if(*cursor == "("){
+      node* parent = current;//create a parent node to access later                                                                                                                                         
       node* n = new node;
       if(current.operand1 == NULL)
         current.getLeft() = n;
       else
         current.getRight() = n;
     }
-current = n;
+    current = n;
+
 
     else if(*cursor == "+" || *cursor == "-" || *cursor == "*" || *cursor == "/")
       {
         if(*cursor == "+")
-          current = new node(PLUS);
+          current.setData(PLUS);
         if(*cursor == "-")
-          current = new node(MINUS);
+          current.setData(MINUS));
         if(*cursor == "*")
-          current = new node(MULT);
+          current.setData(MULT);
         if(*cursor == "/")
-          current = new node(DIVIDE);
+          current.setData(DIVIDE);
       }
 
     else if(*cursor == "x")
       {
         current.getLeft() = "x";
       }
-    else if(*cursor == "0" ||*cursor == "1" ||*cursor == "2" ||*cursor == "3" ||*cursor == "4" ||*cursor == "5" ||*cursor == "6" ||*cursor == "7" ||*cursor == "8" ||*cursor == "9")
+ else if(*cursor == "0" ||*cursor == "1" ||*cursor == "2" ||*cursor == "3" ||*cursor == "4" ||*cursor == "5" ||*cursor == "6" ||*cursor == "7" ||*cursor == "8" ||*cursor == "9")
       {
-	if(*cursor == "0")
-	current.getRight() = 0;
-	if(*cursor == "1")
+        if(*cursor == "0")
+          current.getRight() = 0;
+        if(*cursor == "1")
           current.getRight() = 1;
         if(*cursor == "2")
           current.getRight() = 2;
@@ -63,7 +71,7 @@ current = n;
 
     else if(*cursor == ")")
       {
-
+        current = parent;
       }
     }
 
