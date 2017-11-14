@@ -12,14 +12,14 @@ node List::getHead()
 
 void List:: expressionToList(string exp){
 
-  node* current = new node;
+  Node* current = new node;
   head = current; //access list with this head                                                                                                                                                              
   char* cursor;
   for(int i = 0; i<exp.length(); i++){
     cursor = exp[i];
     if(*cursor == "("){
-      node* parent = current;//create a parent node to access later                                                                                                                                         
-      node* n = new node;
+      Node* parent = current;//create a parent node to access later                                                                                                                                         
+      Node* n = new node;
       if(current.operand1 == NULL)
         current.getLeft() = n;
       else
