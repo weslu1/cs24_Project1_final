@@ -31,13 +31,13 @@ void List:: expressionToList(string exp){
     else if(*cursor == "+" || *cursor == "-" || *cursor == "*" || *cursor == "/")
       {
         if(*cursor == "+")
-          current.setData(PLUS);
+          current->setData(PLUS);
         if(*cursor == "-")
-          current.setData(MINUS));
+          current->setData(MINUS));
         if(*cursor == "*")
-          current.setData(MULT);
+          current->setData(MULT);
         if(*cursor == "/")
-          current.setData(DIVIDE);
+          current->setData(DIVIDE);
       }
 
     else if(*cursor == "x")
