@@ -36,6 +36,7 @@ class Node {
         data_type data;
         Node* operand1;
         Node* operand2;
+	Node* parent;
 };
 
 #endif
