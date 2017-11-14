@@ -98,4 +98,7 @@ Node Node::getRight(){
 void Node::setData(data_type d){
 	data = d;
 }
+Node Node::getParent(){
+	return parent;	
+}
 
