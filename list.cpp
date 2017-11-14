@@ -20,10 +20,10 @@ void List:: expressionToList(string exp){
     if(*cursor == "("){
       Node* parent = current;//create a parent node to access later                                                                                                                                         
       Node* n = new node;
-      if(current.operand1 == NULL)
-        current.getLeft() = n;
+      if(current->getLeft() == NULL)
+        current->getLeft() = n;
       else
-        current.getRight() = n;
+        current->getRight() = n;
     }
     current = n;
 
@@ -47,25 +47,25 @@ void List:: expressionToList(string exp){
  else if(*cursor == "0" ||*cursor == "1" ||*cursor == "2" ||*cursor == "3" ||*cursor == "4" ||*cursor == "5" ||*cursor == "6" ||*cursor == "7" ||*cursor == "8" ||*cursor == "9")
       {
         if(*cursor == "0")
-          current.getRight() = 0;
+          current->getRight() = 0;
         if(*cursor == "1")
-          current.getRight() = 1;
+          current->getRight() = 1;
         if(*cursor == "2")
-          current.getRight() = 2;
+          current->getRight() = 2;
         if(*cursor == "3")
-          current.getRight() = 3;
+          current->getRight() = 3;
         if(*cursor == "4")
-          current.getRight() = 4;
+          current->getRight() = 4;
         if(*cursor == "5")
-          current.getRight() = 5;
+          current->getRight() = 5;
         if(*cursor == "6")
-          current.getRight() = 6;
+          current->getRight() = 6;
         if(*cursor == "7")
-          current.getRight() = 7;
+          current->getRight() = 7;
         if(*cursor == "8")
-          current.getRight() = 8;
+          current->getRight() = 8;
         if(*cursor == "9")
-          current.getRight() = 9;
+          current->getRight() = 9;
 
       }
 
