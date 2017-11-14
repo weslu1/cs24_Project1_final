@@ -95,4 +95,7 @@ Node Node::getLeft(){
 Node Node::getRight(){
 	return operand2;
 }
+void Node::setData(data_type d){
+	data = d;
+}
 
