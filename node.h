@@ -1,6 +1,6 @@
 #ifndef NODE_H
 #define NODE_H
-
+#include<string>
 using namespace std;
 
 enum node_type{EXPRESSION, VARIABLE, INTEGER};
@@ -26,8 +26,8 @@ class Node {
         string print_postfix() const;
         string int_to_string() const;
         char print_operator() const;
-	Node getLeft();
-        Node getRight();
+	Node* getLeft();
+        Node* getRight();
         void setData(data_type d);
 
 
@@ -36,7 +36,7 @@ class Node {
         data_type data;
         Node* operand1;
         Node* operand2;
-	Node* parent;
+	
 };
 
 #endif
