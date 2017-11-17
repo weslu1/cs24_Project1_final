@@ -74,6 +74,7 @@ void List::expressionToList(string exp){
     else if(exp[i] == '0' ||exp[i] == '1' ||exp[i] == '2' ||exp[i] == '3' ||exp[i] == '4' ||exp[i] == '5' ||exp[i] == '6' ||exp[i] == '7' ||exp[i] == '8' ||exp[i] == '9')
       {
 	int t = (exp[i] - '0'); 
+	cout<<t<<endl;
 	Node*y = new Node(t);
 	y->setNodeType(INTEGER);
         current->setRight(y);

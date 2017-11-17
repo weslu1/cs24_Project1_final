@@ -17,7 +17,7 @@ int main(){
  
   Expression Ex;
 
-    cout<<"Infix form: " + Ex.infixString(list.getHead())<<endl;
+    cout<<Ex.infixString(list.getHead())<<endl;
   
     cout<<"Prefix form: " + Ex.prefixString(list.getHead())<<endl;
   

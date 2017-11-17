@@ -15,20 +15,30 @@ union data_type {
 class Node {
 	public:
 		// Constructor
-        Node(char var = 'x');
+        Node(char var);
         Node(operator_type op = PLUS, Node* operand1 = NULL, Node* operand2 = NULL);
-        Node(int val = 0);
+        Node(int val);
+	
         // Destructor
         ~Node();
       
-        string print_infix() const;
-        string print_prefix() const;
-        string print_postfix() const;
+        
         string int_to_string() const;
         char print_operator() const;
-	Node* getLeft();
+        Node* getLeft();
         Node* getRight();
-        void setData(data_type d);
+        void setDataOP(operator_type opd);
+	void setDataVAR(char var);
+	void setDataVAL(int val);
+	void setLeft(Node* d);
+	void setRight(Node* d);
+	void setNodeType(node_type z);
+	node_type getNodeType();
+	data_type getData();
+	int  getDataVAL();
+	char getDataVAR();
+	
+
 
 
     private:

@@ -8,12 +8,13 @@ Node::Node(char var)
 {
   this->data.var = var;
   this->node_t = VARIABLE;
-
+  this->operand1 = NULL;
+  this->operand2 =NULL;
 }
 
 Node::Node(operator_type op, Node* operand1, Node* operand2)
 {
-  this->data.var = op;
+  this->data.op = op;
   this->node_t = EXPRESSION;
   this->operand1 = operand1;
   this->operand2 = operand2;
@@ -23,66 +24,21 @@ Node::Node(int val){
 
   this->data.val = val;
   this->node_t = INTEGER;
+  this->operand1 = NULL;
+  this->operand2 = NULL;
 }
 
-string Node::print_infix() const
-{
-  if (node_t == VARIABLE){
-	  string infix = "x";
-	  return infix;
-  }
-  else if (node_t == EXPRESSION){ 	
-    string infix ="( " + to_string(operand1->data.val) + print_operator() + to_string(operand2->data.val) + " )";  
-	  return infix;
-  }
-  else // (node_t == INTEGER){
-    {
-	  string infix = int_to_string();
-	  return infix;
-  }
-}
-string Node::print_prefix() const
-{ 
-  if (node_t == VARIABLE){
-	  string infix = "x";
-	  return infix;
-  }
-  if (node_t == EXPRESSION){
-    string prefix = print_operator() + to_string(operand1->data.val) + to_string(operand2->data.val);
-	  return prefix;
-  }
-  else// (node_t == INTEGER)
-    {
-  	  string infix = int_to_string();
-  	  return infix;
-  }
-  
-}
-string Node::print_postfix() const
-{
-  if (node_t == VARIABLE){
-	  string infix = "x";
-	  return infix;
-  }
-  if (node_t == EXPRESSION){
-    string prefix =  to_string(operand1->data.val) + to_string(operand2->data.val) + print_operator();
-	  return prefix;
-  }
-  else// (node_t == INTEGER)
-    {
-	  string infix = int_to_string();
-	  return infix;
-  }
-	
-}
+
+
 string Node::int_to_string() const{
-  assert(node_t == INTEGER);
+  
     return to_string(data.val);
    
 
 }
 char Node::print_operator() const
 {
+  
   if(data.op == PLUS)
     return '+';
   if(data.op == MINUS)
@@ -91,6 +47,7 @@ char Node::print_operator() const
     return 'x';
   else//(data.op == DIVIDE)
     return '/';
+  
       
 }
 Node* Node::getLeft(){
@@ -100,7 +57,49 @@ Node* Node::getLeft(){
 Node* Node::getRight(){
 	return operand2;
 }
-void Node::setData(data_type d){
-	data = d;
+
+void Node::setDataOP(operator_type op){
+  data.op = op;
+}
+
+void Node::setDataVAL(int val)
+{
+  data.val=val;
+}
+
+void Node::setDataVAR(char var)
+{
+  data.var = var;
+}
+void Node::setLeft(Node* d){
+
+  operand1 = d;
+
+}
+
+void Node::setRight(Node* d){
+
+  operand2 = d;
+
+}
+
+void Node::setNodeType(node_type z){
+
+  node_t = z;
+
+}
+node_type Node::getNodeType(){
+  
+  return node_t;
+
+}
+int Node::getDataVAL()
+{
+  return data.val;
+}
+
+char  Node::getDataVAR()
+{
+  return data.var;
 }
 
