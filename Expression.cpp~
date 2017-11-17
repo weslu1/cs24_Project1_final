@@ -41,7 +41,7 @@ string Expression::infixString(Node *n){
       
       infixString(n->getRight());
       
-      }
+      
 
     }
   
